@@ -37,9 +37,60 @@
         gtag('config', 'G-4YZ8N3B9R7');
     </script>
 
-    <style>
+/* =============================================
+   Tech Palette Mentor — Full CSS
+   Notes included for clarity
+=============================================== */
 
-         #donate-button {
+/* -----------------------------
+   BODY & PAGE LAYOUT
+------------------------------- */
+body {
+    display: flex;                /* Flex layout for header, main, footer */
+    flex-direction: column;       /* Stack vertically */
+    min-height: 100vh;            /* Full viewport height */
+    margin: 0;                    /* Remove default margins */
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;              /* Base text size */
+    background-color: #F0F0F0;    /* Light gray page background */
+    overflow-y: auto;             /* Scroll if content overflows */
+}
+
+main {
+    flex: 1;                      /* Grow to fill space above footer */
+    width: 80%;                   /* Centered content width */
+    margin: 0 auto;               /* Center horizontally */
+    padding: 20px;                /* Inner spacing */
+    text-align: center;
+    background-color: #F0F0F0;    /* Match body background */
+}
+
+/* -----------------------------
+   HEADER & LOGO
+------------------------------- */
+#header {
+    text-align: center;
+    margin: 10px 0;
+    font-family: Poppins, sans-serif;
+    font-size: 26px;
+    color: black;
+    padding: 4px;
+    background-color: #FAF2E2;   /* Light beige */
+}
+
+#logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: auto;
+    z-index: 100;                /* Ensure logo is on top */
+}
+
+/* -----------------------------
+   DONATE BUTTON
+------------------------------- */
+#donate-button {
     width: 50px;
     height: auto;
     position: absolute;
@@ -47,283 +98,170 @@
     right: 10px;
     transition: transform 0.3s ease;
     z-index: 100;
-    display: none; /* Start hidden */
+    display: none;               /* Hidden by default */
 }
 #donate-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.1);       /* Slight zoom on hover */
 }
-                                                                 body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            margin: 0;
-            height: 100vh;
-            overflow: auto;
-            background-color: #FAF2E2;
-            font-size: 12px; /* Reduced font size */
-        }
-        #header {
-            text-align: center;
-            margin: 10px 0;
-            font-family: Poppins, sans-serif;
-            font-size: 26px;
-            color: black;
-            padding: 4px;
-            background-color: #FAF2E2;
-        }
-        #logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 50px;
-            height: auto;
-            z-index: 100;
-        }
-        #canvas-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: auto;
-            background-color: #FAF2E2;
-        }
-        #canvas {
-            display: block;
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            transition: transform 0.2s ease-in-out;
-        }
-        #controls {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 5px;
-            background-color: #F5F5F5;
-            border: 1px solid #ccc;
-            z-index: 10;
-            font-size: 12px;
-            max-width: 280px;
-        }
 
-               .inline-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-        #hexDisplay {
-            display: flex;
-            align-items: center;
-            margin-top: 2px;
-        }
-        #colorDisplay {
-            width: 40px;
-            height: 20px;
-            margin-left: 5px;
-            border: 1px solid #000;
-        }
-        button, input[type="color"], input[type="range"] {
-            margin-right: 5px;
-            padding: 5px 8px;
-            font-size: 12px;
-            background-color: #D8CBAF;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+/* -----------------------------
+   CANVAS & CONTROLS
+------------------------------- */
+#canvas-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: auto;
+    background-color: #FAF2E2;
+}
 
-        }
+#canvas {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+}
 
-               #toggleDrawingAids:hover, #togglePalette:hover {
-            background-color: #8B5B29;
-        }
-        button:hover {
-            background-color: #C49337;
-        }
-        footer {
-            margin-top: auto;
-            text-align: center;
-            padding: 10px 0;
-            background-color: #FAF2E2;
-            position: relative;
-        }
+#controls {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: #F5F5F5;
+    border: 1px solid #ccc;
+    z-index: 10;
+    font-size: 12px;
+    max-width: 280px;
+}
 
-               input[type="number"] {
-            background-color: #fff;
-            color: black;
-            margin-right: 5px;
-            padding: 5px 8px;
-            font-size: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        hr {
-            margin: 5px 0;
-            border: none;
-            border-top: 1px solid #ccc;
-        }
-        .grid-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-        .grid-controls input[type="range"] {
-            width: 100px;
-        }
-        #palette {
-            max-height: 400px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            margin-top: 10px;
-            display: none;
-        }
-        .palette-item {
-            display: flex;
-            align-items: center;
-            margin: 3px 0;
-        }
-        .swatch {
-            width: 15px;
-            height: 15px;
-            margin-right: 5px;
-            border: 1px solid #000;
-        }
-        #searchBox {
-            width: 80px;
-            padding: 5px;
-        }
-        .palette-buttons {
-            display: flex;
-            flex-direction: column;
-            margin-top: 10px;
-        }
-        .blend-count-controls {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .palette-action-controls {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .selected-swatch {
-            border: 3px solid #000;
-        }
-    /* Footer container */
+.inline-controls, .grid-controls, .blend-count-controls, .palette-action-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.grid-controls input[type="range"] {
+    width: 100px;
+}
+
+#hexDisplay {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+}
+
+#colorDisplay {
+    width: 40px;
+    height: 20px;
+    margin-left: 5px;
+    border: 1px solid #000;
+}
+
+/* Input styles */
+button, input[type="color"], input[type="range"], input[type="number"] {
+    margin-right: 5px;
+    padding: 5px 8px;
+    font-size: 12px;
+    background-color: #D8CBAF;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover, #toggleDrawingAids:hover, #togglePalette:hover {
+    background-color: #C49337;
+}
+
+input[type="number"] {
+    background-color: #fff;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+/* -----------------------------
+   PALETTE DISPLAY
+------------------------------- */
+#palette {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    display: none;  /* hidden until used */
+}
+
+.palette-item {
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
+}
+
+.swatch {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border: 1px solid #000;
+}
+
+.selected-swatch {
+    border: 3px solid #000;
+}
+
+.palette-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+#searchBox {
+    width: 80px;
+    padding: 5px;
+}
+
+/* -----------------------------
+   FOOTER
+------------------------------- */
 footer {
-    padding: 5px 10px; /* shrink vertical and horizontal space */
-    background-color: #f8f8f8; /* optional: match your theme */
+    padding: 5px 10px;           /* compact spacing */
+    font-size: 14px;             /* slightly bigger text */
+    line-height: 1.2;            /* tight spacing */
     text-align: center;
-    font-size: 14px; /* slightly bigger text */
-    line-height: 1.2; /* tighter spacing between lines */
+    background-color: #f8f8f8;
+    position: relative;
 }
 
-/* Copyright paragraph */
 footer #copyright p {
-    margin: 0; /* remove default margins */
-    font-size: 14px; /* adjust to taste */
+    margin: 0;
 }
 
-/* Social icons container */
 footer .social-icons {
-    margin-top: 3px; /* small gap from text */
+    margin-top: 3px;             /* small gap from text */
 }
 
-/* Icons themselves */
 footer .social-icons img {
     width: 14px;
     height: 14px;
-    margin: 0 3px; /* small spacing between icons */
-    vertical-align: middle; /* aligns icons nicely with text */
-}
-        /* Dropdown Menu Styles */
-        #menu-icon {
-            position: absolute;
-            top: 120px;
-            left: 10px;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-
-        #menu-icon:hover {
-            transform: scale(1.1);
-            filter: brightness(1.2);
-        }
-
-        .dropdown {
-            position: absolute;
-            top: 170px;
-            left: 10px;
-            background-color: #FAF2E2;
-            border: 1px solid #8B5B29;
-            border-radius: 5px;
-            display: none;
-            flex-direction: column;
-            width: 160px;
-            padding: 5px;
-        }
-
-        .dropdown a {
-            text-decoration: none;
-            color: #8B5B29;
-            padding: 10px;
-            display: block;
-            transition: background-color 0.3s ease, font-weight 0.3s ease;
-        }
-
-        .dropdown a:hover {
-            background-color: #8B5B29;
-            color: white;
-            font-weight: bold;
-        }
-
-        #menu-icon.active + .dropdown {
-            display: flex;
-        }
-   body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0;
-    overflow-y: auto;
-    height: auto;
-    min-height: 100vh;
-    background-color: #FFFFFF; /* This is already white */
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    border: 5px solid #ffffff; /* Add a white border */
-    background-color: #F0F0F0; /* Set a color background for the body (light gray as an example) */
-}
-main {
-    padding: 20px;
-    width: 80%;
-    text-align: center;
-    background-color: #F0F0F0; /* Set the background color for the content */
-    border: 5px solid #ffffff; /* Optional: add a white border around the main content */
+    margin: 0 3px;               /* spacing between icons */
+    vertical-align: middle;      /* align icons with text */
 }
 
- .social-container {
+/* -----------------------------
+   SOCIAL SHARE BUTTONS
+------------------------------- */
+.social-container, .social-share {
     display: flex;
     align-items: center;
-    gap: 10px;
     justify-content: center;
+    gap: 10px;
     margin-top: 10px;
 }
-.social-share {
-    display: flex;
-    gap: 5px;
-}
+
 .social-share button {
     background: #D8CBAF;
     border: none;
@@ -333,11 +271,20 @@ main {
     font-size: 10px;
     color: black;
 }
+
 .social-share button:hover {
     background: #C49337;
 }
 
-    </style>
+/* -----------------------------
+   HORIZONTAL RULE
+------------------------------- */
+hr {
+    margin: 5px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
      <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -433,5 +380,6 @@ main {
    
 </body>
 </html>
+
 
 
