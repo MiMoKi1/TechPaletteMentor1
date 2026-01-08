@@ -340,7 +340,17 @@
 
     </p>
 </footer>
+    <script>
+    // Show the features immediately since login is removed
+    document.addEventListener('DOMContentLoaded', function() {
+        const features = document.getElementById('features');
+        if (features) {
+            features.style.display = 'block';
+        }
+    });
+</script>
 </body>
 </html>
+
 
 
