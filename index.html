@@ -436,72 +436,18 @@ main {
 <!-- Footer -->
 <footer>
     <div id="copyright">
-        <p>&copy; 2024 Tech Palette Mentor. All rights reserved.</p>
+        <p>&copy; 2024 Tech Palette Mentor. All rights reserved. Educational Purposes Only. Copyright Michilín King</p>
         </div>
-  <div class="social-container">
-    <div class="social-share">
-        <button onclick="shareOnFacebook()">Facebook</button>
-        <button onclick="shareOnTwitter()">Twitter</button>
-        <button onclick="shareOnPinterest()">Pinterest</button>
-    </div>
+
     <div class="social-icons">
-        <a href="https://www.instagram.com/techpalettementor"><img src="instagram.png" alt="Instagram" style="width:14px;height:14px;"></a>
-        <a href="https://www.pinterest.com/techmentorpalette/"><img src="pinterest.png" alt="Pinterest" style="width:14px;height:14px;"></a>
-        <a href="https://www.linkedin.com/company/techpalettementor/"><img src="linkedin.png" alt="LinkedIn" style="width:14px;height:14px;"></a>
+        <a href="https://www.instagram.com/michilin_king"><img src="instagram.png" alt="Instagram" style="width:14px;height:14px;"></a>
+          <a href="https://michilinking.wordpress.com//"><img src="wordpress.png" alt="Site" style="width:14px;height:14px;"></a>
     </div>
 </div>
 </footer>
-     <script>
-    // Donate Button Logic
-    let donateInterval;
 
-    function checkDonationStatus() {
-        return localStorage.getItem('hasDonated') === 'true';
-    }
 
-    function showDonateButton() {
-        if (!checkDonationStatus()) {
-            const button = document.getElementById('donate-button');
-            button.style.display = 'block';
-            setTimeout(() => {
-                button.style.display = 'none';
-            }, 7000); // Show for 7 seconds
-        }
-    }
-
-    // Initialize donation tracking
-    document.getElementById('donateButton').addEventListener('click', () => {
-        localStorage.setItem('hasDonated', 'true');
-        clearInterval(donateInterval);
-         document.getElementById('donate-button').style.display = 'none'; // Hide immediately after clicking
-    });
-
-    // Start popup cycle (10 minute intervals)
-    if (!checkDonationStatus()) {
-        donateInterval = setInterval(showDonateButton, 600000); // 10 minutes
-        setTimeout(showDonateButton, 600000); // Initial delay
-    }
-</script>
-
-     <script>
-    // Social Sharing Functions
-    function shareOnFacebook() {
-        const url = encodeURIComponent(window.location.href);
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-    }
-
-    function shareOnTwitter() {
-        const text = encodeURIComponent("Check out this amazing color blending tool!");
-        const url = encodeURIComponent(window.location.href);
-        window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
-    }
-
-    function shareOnPinterest() {
-        const url = encodeURIComponent(window.location.href);
-        const media = encodeURIComponent("https://www.palettementor.work/images/thumbnail.jpg");
-        const description = encodeURIComponent("Tech Palette Mentor - Color Blending Made Simple");
-        window.open(`https://pinterest.com/pin/create/button/?url=${url}&media=${media}&description=${description}`, '_blank');
-    }
-</script>
+   
 </body>
 </html>
+
