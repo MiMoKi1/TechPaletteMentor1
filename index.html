@@ -217,33 +217,33 @@
         .selected-swatch {
             border: 3px solid #000;
         }
-        footer {
-            margin-top: auto;
-            text-align: center;
-            padding: 10px 0;
-            background-color: #FAF2E2;
-            position: relative;
-        }
-        footer a {
-            color: black;
-            text-decoration: none;
-            margin: 0 10px;
-   font-size: 10px;
-            transition: color 0.3s ease, font-weight 0.3s ease;
-        }
-        footer a:hover {
-            font-weight: bold;
-        }
-        footer a:active {
-            color: white;
-        }
-        footer a:visited {
-            color: black;
-        }
-        footer p {
-        font-size: 10px; /* Adjust the size to make the text smaller */
-        color: black;
-    }
+    /* Footer container */
+footer {
+    padding: 5px 10px; /* shrink vertical and horizontal space */
+    background-color: #f8f8f8; /* optional: match your theme */
+    text-align: center;
+    font-size: 14px; /* slightly bigger text */
+    line-height: 1.2; /* tighter spacing between lines */
+}
+
+/* Copyright paragraph */
+footer #copyright p {
+    margin: 0; /* remove default margins */
+    font-size: 14px; /* adjust to taste */
+}
+
+/* Social icons container */
+footer .social-icons {
+    margin-top: 3px; /* small gap from text */
+}
+
+/* Icons themselves */
+footer .social-icons img {
+    width: 14px;
+    height: 14px;
+    margin: 0 3px; /* small spacing between icons */
+    vertical-align: middle; /* aligns icons nicely with text */
+}
         /* Dropdown Menu Styles */
         #menu-icon {
             position: absolute;
@@ -343,6 +343,7 @@ main {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Tech Palette Mentor",
+     "Creator": "Michilín King",
     "applicationCategory": "DesignApplication",
     "operatingSystem": "Web",
     "screenshot": "https://www.palettementor.work/images/thumbnail.jpg"
@@ -360,17 +361,7 @@ main {
 
    
 
- <!-- Menu Icon -->
-        <img id="menu-icon" src="menu.png" alt="Menu Icon">
-
-        <!-- Dropdown Menu -->
-        <div class="dropdown">
-    <a href="index.html">Home</a>
- <a href="blog.html">Blog</a>	
-        </div>
-<a href="https://ko-fi.com/techpalettementor" target="_blank" id="donateButton">
-    <img src="DONATE.png" alt="Donate" id="donate-button">
-</a>   
+ <
         <div id="features"> <!-- Features container -->
             <canvas id="canvas"></canvas>
             <div id="controls">
@@ -422,15 +413,7 @@ main {
 
     <script src="https://cdn.jsdelivr.net/npm/tinycolor2@1.4.2/dist/tinycolor-min.js"></script>
     <script src="renderer.js"></script>
- <script>
-        const menuIcon = document.getElementById("menu-icon");
-        const dropdown = document.querySelector(".dropdown");
 
-        menuIcon.addEventListener("click", () => {
-            menuIcon.classList.toggle("active");
-            dropdown.classList.toggle("active");
-        });
-    </script>
 
 
 <!-- Footer -->
@@ -450,4 +433,5 @@ main {
    
 </body>
 </html>
+
 
